@@ -13,7 +13,7 @@ struct ContentView: View {
             Button(action: {
                 print("Hello World tapped!")
             }) {
-                Text("Hello 薛佬")
+                Text("Hello World")
                     .fontWeight(.bold)
                     .font(.title)
                     .padding()
@@ -40,6 +40,22 @@ struct ContentView: View {
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.red)
+                .cornerRadius(40)
+            }
+            
+            Button(action: {
+                print("Gradient Delete tapped!")
+            }) {
+                HStack {
+                    Image(systemName: "trash")
+                        .font(.title)
+                    Text("Delete")
+                        .fontWeight(.semibold)
+                        .font(.title)
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(40)
             }
         }
