@@ -1,29 +1,36 @@
 import SwiftUI
 
+// CardView.swift
 struct CardView: View {
+    var image: String
+    var category: String
+    var heading: String
+    var author: String
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Image("swiftui-button")
+        VStack {
+            Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            Text("SwiftUI")
-                .font(.headline)
-                .foregroundColor(.secondary)
-            
-            Text("Drawing a Border with Rounded Corners")
-                .font(.title)
-                .fontWeight(.black)
-                .foregroundColor(.primary)
-                .lineLimit(3)
-            
-            Text("Written by Vikash".uppercased())
-                .font(.caption)
-                .foregroundColor(.secondary)
-            
-            Spacer()
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(category)
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    Text(heading)
+                        .font(.title)
+                        .fontWeight(.black)
+                        .foregroundColor(.primary)
+                        .lineLimit(3)
+                    Text("Written by \(author)".uppercased())
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
@@ -32,8 +39,11 @@ struct CardView: View {
         .padding([.top, .horizontal])
     }
 }
-struct CardView_Previews: PreviewProvider {
+
+
+// Preview
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        ContentView()
     }
 }
